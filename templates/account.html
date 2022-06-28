@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h3>Bilgilerim</h3>
+<hr>
+<form method="POST">
+    <label for = "email">Ad</label>
+    <input type="text" name="name" class = "form-control" required value = {{value[1]}}>
+    <br>
+    <label for = "email">Soyad</label>
+  <input type="text" name="surName" class = "form-control" required value = {{value[2]}}>
+  <br> 
+  <label for = "email">Kullanıcı adı</label>
+  <input type="text" name="nickName" class = "form-control" required value = {{value[3]}}>
+  <br>
+  <label for = "email">Email</label>
+  <input type="email" name="email" class = "form-control" required value = {{value[4]}}>
+  <br>
+  <a href="/changedpassword" class = "btn btn-warning" style = "width:100%;">Şifre Değiştir</a>
+  
+  <br>
+  <br>
+
+  <button class = "btn btn-dark">Güncelle</button>
+  <a class = "btn btn-dark" href = "/mycar">Aracım</a>
+</form>
+{% endblock body %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/6.19.0/simpleicons.svg">
+

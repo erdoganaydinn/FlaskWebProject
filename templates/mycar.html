@@ -1,0 +1,101 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h3>Aracım</h3>
+<hr>
+
+
+<form method="POST"  enctype="multipart/form-data" >
+      
+
+
+{% if result %}
+
+<div style = "text-align:center;">
+    <img src ="{{result[9]}}" width = "300px" style = "border-radius:5%">
+</div>
+<br>
+<label for = "brand">Marka</label>
+<input type="text" name="brand" class = "form-control"  value = "{{result[2]}}">
+<br>
+<label for = "model">Model</label>
+<input type="text" name="model" class = "form-control"   value = "{{result[3]}}">
+<br>
+<label for = "year">Year</label>
+<input type="number" name="year" class = "form-control"  value = "{{result[4]}}">
+<br>
+<label for = "km">Km</label>
+<input type="number" name="km" class = "form-control"  value = "{{result[5]}}">
+<br>
+<label for = "damageRecord">Hasar Kaydı</label>
+<textarea name="damageRecord" class="form-control">{{result[6]}}</textarea>
+<br>
+<label for = "usageTime">Aylık kullanım süresi(saat)</label>
+<input type="number" name="usageTime" class = "form-control"   value = "{{result[8]}}">
+<br>
+<label for = "usageTime">Açıklama</label>
+<input type="text" name="explanation" class = "form-control"  value = "{{result[7]}}">
+<br>
+<label for = "photo">Fotoğraf</label>
+<input type="file" name="photo" class = "form-control" required>
+<br>
+<label for = "price">Fiyat</label>
+<input type="number" name="price" class = "form-control" value = "{{result[12]}}">
+<br>
+    {% if result[11] == 0  %}
+    <button class = "btn btn-dark" >Güncelle</button>
+    <a class = "btn btn-dark" href = "/sellcar">Satışa çıkar</a>    
+     {% endif %}
+     {% if result[11] == 1 %}
+     <button class = "btn btn-dark" >Güncelle</button>
+     <a class = "btn btn-dark" href = "/cancelcarsale">Satış işlemini geri al</a>
+     {% endif %}
+     {% if result[11] == 2 %}
+     <button class = "btn btn-dark" >Güncelle</button>
+     <a class = "btn btn-dark" href = "/cancelcarsale">Satış işlemini geri al</a>
+     <a class = "btn btn-dark" href = "/soldcarproccess">Satıldı olarak işaretle</a>
+     {% endif %}
+     {% if result[11] == 3 %}
+     <a class = "btn btn-success" style = "width:100%;">Aracınız {{result[12]}} ₺ fiyata satıldı ....</a>
+     {% endif %}
+    
+   
+{% else %}
+<label for = "brand">Marka</label>
+<input type="text" name="brand" class = "form-control">
+<br>
+<label for = "model">Model</label>
+<input type="text" name="model" class = "form-control">
+<br>
+<label for = "year">Year</label>
+<input type="number" name="year" class = "form-control">
+<br>
+<label for = "km">Km</label>
+<input type="number" name="km" class = "form-control">
+<br>
+<label for = "damageRecord">Hasar Kaydı(varsa)</label>
+<textarea name="damageRecord" class="form-control"></textarea>
+<br>
+<label for = "usageTime">Aylık kullanım süresi(saat)</label>
+<input type="number" name="usageTime" class = "form-control">
+<br>
+<label for = "usageTime">Açıklama</label>
+<input type="text" name="explanation" class = "form-control">
+<br>
+<label for = "photo">Fotoğraf</label>
+<input type="file" name="photo" class = "form-control">
+<br>
+<label for = "photo">Fiyat</label>
+<input type="number" name="price" class = "form-control">
+<br>
+
+<button class = "btn btn-dark">Araç ekle</button>
+{% endif %}
+</form>
+
+<br>
+<br>
+{% endblock body %}
+
+    

@@ -1,0 +1,53 @@
+{% include "layout.html"%}
+
+{% block body %}
+<div class="container">
+<form method="POST"  enctype="multipart/form-data" >
+    
+    <div style = "text-align:center;">
+        <img src ="/.{{result[9]}}" width = "300px" style = "border-radius:5%">
+    </div>
+    <br>
+    <label for = "brand">Marka</label>
+    <input type="text" name="brand" class = "form-control"  value = "{{result[2]}}" readonly>
+    <br>
+    <label for = "model">Model</label>
+    <input type="text" name="model" class = "form-control"   value = "{{result[3]}}" readonly>
+    <br>
+    <label for = "year">Year</label>
+    <input type="number" name="year" class = "form-control"  value = "{{result[4]}}" readonly>
+    <br>
+    <label for = "km">Km</label>
+    <input type="number" name="km" class = "form-control"  value = "{{result[5]}}" readonly>
+    <br>
+    <label for = "damageRecord">Hasar Kaydı</label>
+    <textarea name="damageRecord" class="form-control" readonly>{{result[6]}}</textarea> 
+    <br>
+    <label for = "usageTime">Aylık kullanım süresi(saat)</label>
+    <input type="number" name="usageTime" class = "form-control"   value = "{{result[8]}}" readonly>
+    <br>
+    <label for = "usageTime">Açıklama</label>
+    <input type="text" name="explanation" class = "form-control"  value = "{{result[7]}}" readonly>
+    <br>
+    <label for = "price">Fiyat</label>
+    <input type="number" name="price" class = "form-control" value = "{{result[12]}}" readonly>
+    <br>
+    <br>
+    <br>
+    
+    {% if result[11] == 1 %}
+        <a href="/goesOnSale/{{result[0]}}" class = "btn btn-primary" style ="width:100%;">Satışa Çıkar</a>
+    {% endif %}
+    {% if result[11] == 2 %}
+        <a href="/revokeOnSale/{{result[0]}}" class = "btn btn-primary" style ="width:100%;">Satışa İşlemini İptal Et</a>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</form>
+</div>
+
+{% endblock %}

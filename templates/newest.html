@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aydın Cars</title>
+</head>
+<style>
+  *{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+  }
+  .card-padding{
+    padding:2px;
+  }
+
+ 
+</style>
+<body>
+{% extends 'layout.html' %}
+{% block body %}
+
+  <br>
+
+
+<div class = "row">
+    {% for car in results  %}
+    
+    <div class = "card-padding card col-12 col-md-4 col-sm-6 col-lg-3" style = "border:none;">
+    <div class="card" style="padding:0px;">
+        <img class="card-img-top" style ="max-height:150px;" src="{{car[9]}}" alt="Arac fotoğraf" width='100%'>
+        <div class="card-body">
+          <h5 class="card-title">{{car[2]}} {{car[3]}}</h5>
+          <p class="card-text">KM : {{car[5]}}</p>
+          <p class="card-text">Fiyat : {{car[12]}} ₺</p>
+        </div>
+        <a href="car/{{car[0]}}" class="btn btn-dark" width="100%" role="button" >İncele</a>
+      </div>
+    </div>
+  
+    {% endfor %}  
+</div>
+</div>
+<br>
+<br>
+
+{% endblock body %}
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<html>
+<br>
+
+<head></head>
+
+<body>
+  <br>
+  <table class="table table-white" style="width:100%;">
+    <h1 style="text-align :center;">Araçlar</h1>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Marka</th>
+        <th scope="col">Model</th>
+        <th scope="col">Fiyat</th>
+        <th scope="col">Durum</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if cars0 %}
+
+      {% for car in cars0 %}
+      <tr>
+        <th scope="col">{{car[0]}}</th>
+        <td scope="row">{{car[2]}}</td>
+        <td scope="row">{{car[3]}}</td>
+        <td>{{car[12]}}</td>
+        <td><a class="btn btn-secondary" href="/admin/car/{{car[0]}}">Tanımlanmış</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+      {% if cars1 %}
+      {% for car in cars1 %}
+      <tr>
+        <th scope="col">{{car[0]}}</th>
+        <td scope="row">{{car[2]}}</td>
+        <td scope="row">{{car[3]}}</td>
+        <td>{{car[12]}}</td>
+        <td><a class="btn btn-info" href="/admin/car/{{car[0]}}">Satış isteği</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+      {% if cars2 %}
+      {% for car in cars2 %}
+      <tr>
+        <th scope="col">{{car[0]}}</th>
+        <td scope="row">{{car[2]}}</td>
+        <td scope="row">{{car[3]}}</td>
+        <td>{{car[12]}}</td>
+        <td><a class="btn btn-primary" href="/admin/car/{{car[0]}}">Satışta</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+      {% if cars3 %}
+      {% for car in cars3 %}
+      <tr>
+        <th scope="col">{{car[0]}}</th>
+        <td scope="row">{{car[2]}}</td>
+        <td scope="row">{{car[3]}}</td>
+        <td>{{car[12]}}</td>
+        <td><a class="btn btn-success" href="/admin/car/{{car[0]}}">Satılmış</a></td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <table class="table table-white" style="width:100%;">
+    <h1 style="text-align :center;">Kullanıcılar</h1>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">İsim</th>
+        <th scope="col">Soyisim</th>
+        <th scope="col">Kullanıcı Adı</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td scope="col">{{user[0]}}</td>
+        <td scope="col">{{user[1]}}</td>
+        <td scope="col">{{user[2]}}</td>
+        <td scope="col">{{user[3]}}</td>
+        <td scope="col"><a href="/admin/getusers/{{user[0]}}" class = "btn btn-dark">İncele</a></td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock body %}

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<br>
+<br>
+<form method="POST">
+    <div style="text-align:center">
+      <img src = "" style = "border-radius:100%;width:250px;">
+    </div>
+    <br>
+    <label for = "text">Marka</label>
+    <input type="text" name="text" class = "form-control" value = "{{car['marka']}}" readonly>
+    <br>
+    <label for = "text">Model</label>
+    <input type="text" name="text" class = "form-control" value = "{{car['model']}}" readonly>
+    <br>
+    <label for = "text">Km</label>
+    <input type="text" name="text" class = "form-control" value = "{{car['km']}}" readonly>
+    <br>
+    <label for = "text">Açıklama</label>
+    <input type="text" name="text" class = "form-control" value = "{{car['aciklama']}}" readonly>
+    <br>
+    <label for = "text">Fiyat</label>
+    <input type="text" name="text" class = "form-control" value = "{{car['hasar_kaydi']}}" readonly>
+    <br>
+    <label for = "text">Fiyat</label>
+    <input type="text" name="text" class = "form-control" value = "{{car['fiyat']}}" readonly>
+    <br>
+    <button class = "btn btn-warning">Yayından Kaldır</button>
+  </form>
+  <br>
+  <br>
+
+
+
+{% endblock  %}
